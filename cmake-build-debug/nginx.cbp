@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="nginx"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/yobol/workspace/opensource/nginx/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/yobol/workspace/opensource/nginx/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/yobol/workspace/opensource/nginx/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nginx">
+				<Option output="/home/yobol/workspace/opensource/nginx/cmake-build-debug/nginx" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yobol/workspace/opensource/nginx/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/core"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/event"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/event/modules"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/http"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/http/modules"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/http/modules/perl"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/http/v2"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/mail"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/os/unix"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/os/win32"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/stream"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 nginx"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nginx/fast">
+				<Option output="/home/yobol/workspace/opensource/nginx/cmake-build-debug/nginx" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yobol/workspace/opensource/nginx/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/core"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/event"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/event/modules"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/http"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/http/modules"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/http/modules/perl"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/http/v2"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/mail"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/os/unix"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/os/win32"/>
+					<Add directory="/home/yobol/workspace/opensource/nginx/src/stream"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 nginx/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yobol/workspace/opensource/nginx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/nginx.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/nginx.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_array.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_array.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_buf.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_buf.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_conf_file.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_conf_file.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_config.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_connection.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_connection.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_core.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_cpuinfo.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_crc.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_crc32.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_crc32.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_crypt.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_crypt.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_cycle.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_cycle.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_file.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_file.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_hash.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_hash.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_inet.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_inet.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_list.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_list.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_log.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_log.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_md5.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_md5.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_murmurhash.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_murmurhash.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_open_file_cache.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_open_file_cache.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_output_chain.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_palloc.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_palloc.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_parse.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_parse.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_parse_time.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_parse_time.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_proxy_protocol.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_proxy_protocol.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_queue.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_queue.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_radix_tree.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_radix_tree.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_rbtree.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_rbtree.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_regex.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_regex.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_resolver.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_resolver.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_rwlock.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_rwlock.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_sha1.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_sha1.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_shmtx.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_shmtx.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_slab.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_slab.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_spinlock.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_string.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_string.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_syslog.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_syslog.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_thread_pool.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_thread_pool.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_times.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/core/ngx_times.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/modules/ngx_devpoll_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/modules/ngx_epoll_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/modules/ngx_eventport_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/modules/ngx_iocp_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/modules/ngx_iocp_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/modules/ngx_kqueue_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/modules/ngx_poll_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/modules/ngx_select_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/modules/ngx_win32_poll_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/modules/ngx_win32_select_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_accept.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_acceptex.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_connect.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_connect.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_connectex.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_openssl.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_openssl.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_openssl_stapling.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_pipe.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_pipe.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_posted.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_posted.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_timer.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_timer.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/event/ngx_event_udp.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_access_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_addition_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_auth_basic_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_auth_request_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_autoindex_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_browser_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_charset_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_chunked_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_dav_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_degradation_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_empty_gif_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_fastcgi_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_flv_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_geo_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_geoip_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_grpc_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_gunzip_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_gzip_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_gzip_static_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_headers_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_image_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_index_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_limit_conn_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_limit_req_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_log_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_map_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_memcached_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_mirror_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_mp4_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_not_modified_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_proxy_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_random_index_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_range_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_realip_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_referer_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_rewrite_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_scgi_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_secure_link_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_slice_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_split_clients_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_ssi_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_ssi_filter_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_ssl_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_ssl_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_static_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_stub_status_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_sub_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_try_files_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_hash_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_ip_hash_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_keepalive_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_least_conn_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_random_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_zone_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_userid_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_uwsgi_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_xslt_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/perl/ngx_http_perl_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/perl/ngx_http_perl_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_cache.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_config.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_copy_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_core_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_core_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_file_cache.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_header_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_parse.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_postpone_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_request.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_request.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_request_body.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_script.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_script.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_special_response.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_upstream.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_upstream.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_upstream_round_robin.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_upstream_round_robin.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_variables.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_variables.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/ngx_http_write_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/v2/ngx_http_v2.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/v2/ngx_http_v2.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/v2/ngx_http_v2_encode.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/v2/ngx_http_v2_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/v2/ngx_http_v2_huff_decode.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/v2/ngx_http_v2_huff_encode.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/v2/ngx_http_v2_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/v2/ngx_http_v2_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/v2/ngx_http_v2_table.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_auth_http_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_core_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_handler.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_imap_handler.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_imap_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_imap_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_parse.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_pop3_handler.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_pop3_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_pop3_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_proxy_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_smtp_handler.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_smtp_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_smtp_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_ssl_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/mail/ngx_mail_ssl_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/misc/ngx_cpp_test_module.cpp">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/misc/ngx_google_perftools_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_alloc.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_alloc.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_atomic.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_channel.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_channel.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_daemon.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_darwin.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_darwin_config.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_darwin_init.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_darwin_sendfile_chain.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_dlopen.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_dlopen.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_errno.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_errno.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_file_aio_read.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_files.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_files.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_freebsd.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_freebsd_config.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_freebsd_init.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_freebsd_sendfile_chain.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_gcc_atomic_amd64.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_gcc_atomic_ppc.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_gcc_atomic_sparc64.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_gcc_atomic_x86.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_linux.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_linux_aio_read.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_linux_config.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_linux_init.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_linux_sendfile_chain.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_os.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_posix_config.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_posix_init.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_process.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_process.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_process_cycle.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_process_cycle.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_readv_chain.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_recv.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_send.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_setaffinity.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_setaffinity.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_setproctitle.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_setproctitle.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_shmem.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_shmem.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_socket.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_socket.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_solaris.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_solaris_config.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_solaris_init.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_solaris_sendfilev_chain.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_sunpro_atomic_sparc64.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_thread.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_thread_cond.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_thread_id.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_thread_mutex.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_time.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_time.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_udp_recv.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_udp_send.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_udp_sendmsg_chain.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_user.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_user.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/unix/ngx_writev_chain.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_alloc.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_alloc.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_atomic.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_dlopen.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_dlopen.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_errno.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_errno.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_event_log.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_files.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_files.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_os.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_process.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_process.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_process_cycle.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_process_cycle.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_service.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_shmem.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_shmem.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_socket.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_socket.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_stat.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_thread.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_thread.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_time.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_time.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_udp_wsarecv.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_user.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_user.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_win32_config.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_win32_init.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_wsarecv.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_wsarecv_chain.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_wsasend.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/os/win32/ngx_wsasend_chain.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_access_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_core_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_geo_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_geoip_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_handler.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_limit_conn_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_log_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_map_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_proxy_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_realip_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_return_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_script.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_script.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_split_clients_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_ssl_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_ssl_module.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_ssl_preread_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_upstream.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_upstream.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_upstream_hash_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_upstream_least_conn_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_upstream_random_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_upstream_round_robin.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_upstream_round_robin.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_upstream_zone_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_variables.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_variables.h">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_write_filter_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
