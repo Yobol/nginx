@@ -179,8 +179,10 @@ typedef struct {
 
 
 typedef struct {
-    ngx_list_t                        headers;
+    ngx_list_t                        headers;  // headers 存储了所有解析后的 HTTP 头部
 
+    // headers 链表中的每一个元素都是 ngx_table_elt_t 类型
+    // 当指针为 NULL 时，表示没有解析到相应的 HTTP 头部
     ngx_table_elt_t                  *host;
     ngx_table_elt_t                  *connection;
     ngx_table_elt_t                  *if_modified_since;
@@ -230,17 +232,19 @@ typedef struct {
     ngx_table_elt_t                  *date;
 #endif
 
+    // user 和 passwd 只有 ngx_http_auth_basic_module 才会使用
     ngx_str_t                         user;
     ngx_str_t                         passwd;
 
     ngx_array_t                       cookies;
 
     ngx_str_t                         server;
-    off_t                             content_length_n;
+    off_t                             content_length_n;  // 根据 content_length 计算出的 HTTP 包大小
     time_t                            keep_alive_n;
 
-    unsigned                          connection_type:2;
-    unsigned                          chunked:1;
+    unsigned                          connection_type:2;  // HTTP 连接类型，默认是 NGX_HTTP_CONNECTION_KEEP_ALIVE
+    // Nginx 会根据浏览器传送的 User-Agent 头部来判断浏览器的类型，值为 1 时表示时相应浏览器发送的请求
+    unsigned                          chunked:1; // Transfer-Coding 头部的 chunked 取值，表示当 HTTP 请求包体过大，需要分块进行处理或传输
     unsigned                          msie:1;
     unsigned                          msie6:1;
     unsigned                          opera:1;
@@ -252,12 +256,25 @@ typedef struct {
 
 
 typedef struct {
-    ngx_list_t                        headers;
+    /*
+     * 添加自定义 HTTP 响应头部：
+     * ngx_table_elt_t *h = ngx_list_push(r->header_out.headers);
+     * if (h = NULL) {
+     *     return NGX_ERROR;
+     * }
+     * h->hash = 1;
+     * h->key.len = sizeof("TestHead") - 1;
+     * h->key.data = (u_char *) "TestHead";
+     * h->value.len = sizeof("TestValue") - 1;
+     * h->value.data = (u_char *) "TestValue";
+     */
+    ngx_list_t                        headers;  // 待发送的 HTTP 响应头部列表
     ngx_list_t                        trailers;
 
-    ngx_uint_t                        status;
-    ngx_str_t                         status_line;
+    ngx_uint_t                        status;  // HTTP 响应码
+    ngx_str_t                         status_line;  // 响应状态行，如 HTTP/1.1 200 Ok
 
+    // RFC 1616 规范中定义的 HTTP 头部，如果想要返回自定义头部，需要按照上述方法向 headers 中添加
     ngx_table_elt_t                  *server;
     ngx_table_elt_t                  *date;
     ngx_table_elt_t                  *content_length;
@@ -273,6 +290,7 @@ typedef struct {
 
     ngx_str_t                        *override_charset;
 
+    // 调用 ngx_http_set_content_type(r) 方法可以设置 Content-Type 头部
     size_t                            content_type_len;
     ngx_str_t                         content_type;
     ngx_str_t                         charset;
@@ -385,33 +403,42 @@ struct ngx_http_request_s {
     ngx_http_cache_t                 *cache;
 #endif
 
-    ngx_http_upstream_t              *upstream;
+    ngx_http_upstream_t              *upstream;  // 反向代理，当 upstream 为 NULL 时，表示请求不走反向代理
     ngx_array_t                      *upstream_states;
                                          /* of ngx_http_upstream_state_t */
 
     ngx_pool_t                       *pool;
-    ngx_buf_t                        *header_in;
+    ngx_buf_t                        *header_in;  // 指向 Nginx 收到的未经解析的 HTTP 头部
 
-    ngx_http_headers_in_t             headers_in;
-    ngx_http_headers_out_t            headers_out;
+    ngx_http_headers_in_t             headers_in;  // 存储已经解析过的 HTTP 请求头部
+    // 当需要向客户端返回响应时，需要指定 r->headers_out 成员
+    // 通过 ngx_http_send_header(r) 方法可以发送 HTTP 头部
+    ngx_http_headers_out_t            headers_out;  // 指向 HTTP 响应头部
 
-    ngx_http_request_body_t          *request_body;
+    ngx_http_request_body_t          *request_body;  // 指向 Nginx 请求包体
 
     time_t                            lingering_time;
     time_t                            start_sec;
     ngx_msec_t                        start_msec;
 
-    ngx_uint_t                        method;
-    ngx_uint_t                        http_version;
+    ngx_uint_t                        method;  // 请求方法类型
+
+    // 请求协议版本取值范围：
+    // #define NGX_HTTP_VERSION_9                 9
+    // #define NGX_HTTP_VERSION_10                1000
+    // #define NGX_HTTP_VERSION_11                1001
+    // #define NGX_HTTP_VERSION_20                2000
+    ngx_uint_t                        http_version;  // Nginx 解析后的协议版本
 
     ngx_str_t                         request_line;
-    ngx_str_t                         uri;
-    ngx_str_t                         args;
-    ngx_str_t                         exten;
-    ngx_str_t                         unparsed_uri;
-
-    ngx_str_t                         method_name;
-    ngx_str_t                         http_protocol;
+    ngx_str_t                         uri;  // 请求 URI
+    ngx_str_t                         args;  // URL 参数
+    // 当用户请求为 GET /a.txt HTTP/1.1 时, exten 的值为 {len=3, data="txt"}
+    // 当用户请求为 GET /a HTTP/1.1 时, exten 的值为 {len=0, data=0x0}
+    ngx_str_t                         exten;  // 指向用户请求的文件拓展名
+    ngx_str_t                         unparsed_uri;  // 没有进行 URL 编码的原始请求
+    ngx_str_t                         method_name;  // 请求方法名
+    ngx_str_t                         http_protocol;  // 请求协议
     ngx_str_t                         schema;
 
     ngx_chain_t                      *out;
@@ -450,6 +477,8 @@ struct ngx_http_request_s {
 
     ngx_http_cleanup_t               *cleanup;
 
+    // TODO: ngx_http_read_client_request_body 被调用时会执行 r->main->count++
+    // count 表示 HTTP 请求被处理的次数？
     unsigned                          count:16;
     unsigned                          subrequests:8;
     unsigned                          blocked:8;
@@ -486,6 +515,9 @@ struct ngx_http_request_s {
     unsigned                          request_body_file_log_level:3;
     unsigned                          request_body_no_buffering:1;
 
+    // upstream 有三种处理上游响应的方式：
+    // 1. 当 subrequest_in_memory 为 1 时，表示 upstream 不转发响应包体到下游；
+    //    当 subrequest_in_memory 为 0 时，表示 upstream 会转发响应包体到下游；
     unsigned                          subrequest_in_memory:1;
     unsigned                          waited:1;
 
@@ -577,13 +609,14 @@ struct ngx_http_request_s {
      * via ngx_http_ephemeral_t
      */
 
-    u_char                           *uri_start;
-    u_char                           *uri_end;
-    u_char                           *uri_ext;
-    u_char                           *args_start;
-    u_char                           *request_start;
-    u_char                           *request_end;
-    u_char                           *method_end;
+    u_char                           *uri_start;  // 指向 HTTP 请求 URI 首字符的地址
+    u_char                           *uri_end;  // 指向 HTTP 请求 URI 最后一个字符的下一个字符的地址
+    u_char                           *uri_ext;  // 与 exten.data 指向的内容相同
+    u_char                           *args_start;  // URL 参数的起始位置
+    u_char                           *request_start;  // 指向 HTTP 请求内容的起始地址，即 HTTP 请求方法名的起始地址
+    u_char                           *request_end;  // 指向 HTTP 请求方法名的最后一个字符的地址
+    // TODO 既然使用指针可以用来表示请求中的指定部分，为什么还需要 method_name 等字段存储其具体内容呢？
+    u_char                           *method_end;  // 指向 HTTP 请求方法的终止地址， [request_start, method_end] 之间的内容为请求方法名
     u_char                           *schema_start;
     u_char                           *schema_end;
     u_char                           *host_start;

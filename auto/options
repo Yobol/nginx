@@ -336,6 +336,8 @@ use the \"--with-mail_ssl_module\" option instead"
         --with-google_perftools_module)  NGX_GOOGLE_PERFTOOLS=YES   ;;
         --with-cpp_test_module)          NGX_CPP_TEST=YES           ;;
 
+        # 将 --add-module=PATH 的 PATH 添加到 $NGX_ADDONS 中
+        # 在 configure 命令执行到 auto/modules 脚本时，将在生成的 ngx_modules.c 文件中加入 PATH 指定的模块
         --add-module=*)                  NGX_ADDONS="$NGX_ADDONS $value" ;;
         --add-dynamic-module=*)          DYNAMIC_ADDONS="$DYNAMIC_ADDONS $value" ;;
 

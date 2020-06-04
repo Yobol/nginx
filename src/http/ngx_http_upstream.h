@@ -324,12 +324,12 @@ struct ngx_http_upstream_s {
 
     ngx_event_pipe_t                *pipe;
 
-    ngx_chain_t                     *request_bufs;
+    ngx_chain_t                     *request_bufs;  // 决定向上游服务器发送的请求包体
 
     ngx_output_chain_ctx_t           output;
     ngx_chain_writer_ctx_t           writer;
 
-    ngx_http_upstream_conf_t        *conf;
+    ngx_http_upstream_conf_t        *conf;  // 指定 upstream 访问对所有限制性参数
     ngx_http_upstream_srv_conf_t    *upstream;
 #if (NGX_HTTP_CACHE)
     ngx_array_t                     *caches;
@@ -337,11 +337,16 @@ struct ngx_http_upstream_s {
 
     ngx_http_upstream_headers_in_t   headers_in;
 
-    ngx_http_upstream_resolved_t    *resolved;
+    ngx_http_upstream_resolved_t    *resolved;  // 指定上游服务器的地址
 
     ngx_buf_t                        from_client;
 
-    ngx_buf_t                        buffer;
+    // buffer 在处理 HTTP 请求的过程中可以被复用：
+    // 1. 回调 process_header 方法解析上游响应的头部时，header会存储完整的头部信息
+    // 2. 当 buffering 为 1 时，表示 upstream 会使用多个缓冲区或磁盘文件向下游转发上游的包体，buffer 没有意义
+    // 3. 当 buffering 为 0 时，只是用 buffer 缓冲区用于反复接收上游的包体，进而向上游转发
+    // 4. 当 upstream 并不用于转发上游包体时，buffer 会被用于返回接受上游的包体
+    ngx_buf_t                        buffer;  // 存储上游服务器返回的响应内容
     off_t                            length;
 
     ngx_chain_t                     *out_bufs;
@@ -355,12 +360,14 @@ struct ngx_http_upstream_s {
 #if (NGX_HTTP_CACHE)
     ngx_int_t                      (*create_key)(ngx_http_request_t *r);
 #endif
-    ngx_int_t                      (*create_request)(ngx_http_request_t *r);
+    // 回调函数
+    ngx_int_t                      (*create_request)(ngx_http_request_t *r);  // 必须实现：创建发往上游服务器的请求
     ngx_int_t                      (*reinit_request)(ngx_http_request_t *r);
-    ngx_int_t                      (*process_header)(ngx_http_request_t *r);
+    // 如果 process_header返回 NGX_AGAIN，表示还没有接收完完整的响应包头，需要再次调用 process_header 方法接收响应
+    ngx_int_t                      (*process_header)(ngx_http_request_t *r);  // 必须实现：当接收到上游服务器的响应后会调用该方法
     void                           (*abort_request)(ngx_http_request_t *r);
     void                           (*finalize_request)(ngx_http_request_t *r,
-                                         ngx_int_t rc);
+                                         ngx_int_t rc);  // 必须实现：销毁 upstream
     ngx_int_t                      (*rewrite_redirect)(ngx_http_request_t *r,
                                          ngx_table_elt_t *h, size_t prefix);
     ngx_int_t                      (*rewrite_cookie)(ngx_http_request_t *r,
@@ -383,12 +390,12 @@ struct ngx_http_upstream_s {
     unsigned                         store:1;
     unsigned                         cacheable:1;
     unsigned                         accel:1;
-    unsigned                         ssl:1;
+    unsigned                         ssl:1;  // 是否基于 SSL 协议访问上游服务器
 #if (NGX_HTTP_CACHE)
     unsigned                         cache_status:3;
 #endif
 
-    unsigned                         buffering:1;
+    unsigned                         buffering:1;  // 是否使用多个 buffer 以及磁盘文件缓冲上游服务器的响应
     unsigned                         keepalive:1;
     unsigned                         upgrade:1;
 
@@ -412,8 +419,10 @@ typedef struct {
 } ngx_http_upstream_param_t;
 
 
-ngx_int_t ngx_http_upstream_create(ngx_http_request_t *r);
-void ngx_http_upstream_init(ngx_http_request_t *r);
+// r->upstream 在初始状态下为 NULL，需要调用 ngx_http_upstream_create 方法创建 upstream
+ngx_int_t ngx_http_upstream_create(ngx_http_request_t *r);  // 为请求创建 upstream
+// 启动之前执行 设置上游服务器地址 和 设置 upstream 的回调方法
+void ngx_http_upstream_init(ngx_http_request_t *r);  // 启动 upstream
 ngx_http_upstream_srv_conf_t *ngx_http_upstream_add(ngx_conf_t *cf,
     ngx_url_t *u, ngx_uint_t flags);
 char *ngx_http_upstream_bind_set_slot(ngx_conf_t *cf, ngx_command_t *cmd,

@@ -16,7 +16,7 @@ typedef struct ngx_module_s          ngx_module_t;
 typedef struct ngx_conf_s            ngx_conf_t;
 typedef struct ngx_cycle_s           ngx_cycle_t;
 typedef struct ngx_pool_s            ngx_pool_t;
-typedef struct ngx_chain_s           ngx_chain_t;
+typedef struct ngx_chain_s           ngx_chain_t;  // 与 ngx_buf_t 类型配合使用的一种链表数据结构
 typedef struct ngx_log_s             ngx_log_t;
 typedef struct ngx_open_file_s       ngx_open_file_t;
 typedef struct ngx_command_s         ngx_command_t;
@@ -35,11 +35,11 @@ typedef void (*ngx_connection_handler_pt)(ngx_connection_t *c);
 
 
 #define  NGX_OK          0
-#define  NGX_ERROR      -1
+#define  NGX_ERROR      -1  // 请求出错，会调用 ngx_http_terminate_request 终止请求。如果还有 POST 子请求，将在执行完 POST 请求后再终止本次请求
 #define  NGX_AGAIN      -2
 #define  NGX_BUSY       -3
-#define  NGX_DONE       -4
-#define  NGX_DECLINED   -5
+#define  NGX_DONE       -4  // 请求到此为止，将控制权转交给 Nginx
+#define  NGX_DECLINED   -5  // 继续在 NGX_HTTP_CONTENT_PHASE 阶段寻找下一个匹配该请求的 HTTP 模块
 #define  NGX_ABORT      -6
 
 

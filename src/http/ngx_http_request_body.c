@@ -40,18 +40,18 @@ ngx_http_read_client_request_body(ngx_http_request_t *r,
 
     r->main->count++;
 
-    if (r != r->main || r->request_body || r->discard_body) {
+    if (r != r->main || r->request_body || r->discard_body) {  // 判断 HTTP 请求是否为空
         r->request_body_no_buffering = 0;
         post_handler(r);
         return NGX_OK;
     }
 
-    if (ngx_http_test_expect(r) != NGX_OK) {
+    if (ngx_http_test_expect(r) != NGX_OK) {  // 判断 HTTP 请求是否符合要求
         rc = NGX_HTTP_INTERNAL_SERVER_ERROR;
         goto done;
     }
 
-    rb = ngx_pcalloc(r->pool, sizeof(ngx_http_request_body_t));
+    rb = ngx_pcalloc(r->pool, sizeof(ngx_http_request_body_t));  // 申请内存接收 HTTP 请求
     if (rb == NULL) {
         rc = NGX_HTTP_INTERNAL_SERVER_ERROR;
         goto done;
@@ -72,22 +72,26 @@ ngx_http_read_client_request_body(ngx_http_request_t *r,
 
     r->request_body = rb;
 
+    // Refer: [HTTP 协议的 Chunked 编码](http://www.mamicode.com/info-detail-462689.html）
+    // Refer: https://www.rfc-editor.org/    --> Search  RFC 2616
     if (r->headers_in.content_length_n < 0 && !r->headers_in.chunked) {
         r->request_body_no_buffering = 0;
         post_handler(r);
         return NGX_OK;
     }
 
-#if (NGX_HTTP_V2)
+#if (NGX_HTTP_V2)  // 如果是 HTTP/2.0 就调用 ngx_http_v2_read_request_body 方法
     if (r->stream) {
         rc = ngx_http_v2_read_request_body(r);
         goto done;
     }
 #endif
 
-    preread = r->header_in->last - r->header_in->pos;
+    // u_char          *pos;  // 本次处理的（内存）起始位置
+    // u_char          *last;  // 本次处理的（内存）终止位置
+    preread = r->header_in->last - r->header_in->pos;  // 通过 last 和 pos 计算待处理的 HTTP 包体大小
 
-    if (preread) {
+    if (preread) {  // 如果待处理的 HTTP 包体大小不为 0
 
         /* there is the pre-read part of the request body */
 
@@ -132,7 +136,7 @@ ngx_http_read_client_request_body(ngx_http_request_t *r,
             goto done;
         }
 
-    } else {
+    } else {  // 待处理的 HTTP 请求包体大小为 0
         /* set rb->rest */
 
         if (ngx_http_request_body_filter(r, NULL) != NGX_OK) {

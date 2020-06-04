@@ -88,13 +88,15 @@ typedef struct {
     ngx_array_t      *dns_wc_tail_hash;
 } ngx_hash_keys_arrays_t;
 
-
 typedef struct {
-    ngx_uint_t        hash;
+    // 该字段表示 ngx_table_elt_t 可以是某个散列表数据结构（ngx_hash_t类型）中的成员
+    ngx_uint_t        hash;  // 用于快速检索
+    // ngx_table_elt_t 就是一个 key/value 对
     ngx_str_t         key;
     ngx_str_t         value;
-    u_char           *lowcase_key;
+    u_char           *lowcase_key;  // 忽略大小写
 } ngx_table_elt_t;
+// 当该数据结构用于 HTTP 头部时： key 存储头部名称，value 存储头部值
 
 
 void *ngx_hash_find(ngx_hash_t *hash, ngx_uint_t key, u_char *name, size_t len);

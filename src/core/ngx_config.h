@@ -75,8 +75,8 @@
 
 #endif
 
-typedef intptr_t        ngx_int_t;
-typedef uintptr_t       ngx_uint_t;
+typedef intptr_t        ngx_int_t;   // 封装有符号整型，代替 int
+typedef uintptr_t       ngx_uint_t;  // 封装无符号整型，代替 unsigned int
 typedef intptr_t        ngx_flag_t;
 
 

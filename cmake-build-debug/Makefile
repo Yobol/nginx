@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/yobol/workspace/opensource/nginx/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -1932,6 +1932,33 @@ src/http/modules/ngx_http_degradation_module.c.s:
 	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_degradation_module.c.s
 .PHONY : src/http/modules/ngx_http_degradation_module.c.s
 
+src/http/modules/ngx_http_demo_module.o: src/http/modules/ngx_http_demo_module.c.o
+
+.PHONY : src/http/modules/ngx_http_demo_module.o
+
+# target to build an object file
+src/http/modules/ngx_http_demo_module.c.o:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.o
+.PHONY : src/http/modules/ngx_http_demo_module.c.o
+
+src/http/modules/ngx_http_demo_module.i: src/http/modules/ngx_http_demo_module.c.i
+
+.PHONY : src/http/modules/ngx_http_demo_module.i
+
+# target to preprocess a source file
+src/http/modules/ngx_http_demo_module.c.i:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.i
+.PHONY : src/http/modules/ngx_http_demo_module.c.i
+
+src/http/modules/ngx_http_demo_module.s: src/http/modules/ngx_http_demo_module.c.s
+
+.PHONY : src/http/modules/ngx_http_demo_module.s
+
+# target to generate assembly for a file
+src/http/modules/ngx_http_demo_module.c.s:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.s
+.PHONY : src/http/modules/ngx_http_demo_module.c.s
+
 src/http/modules/ngx_http_empty_gif_module.o: src/http/modules/ngx_http_empty_gif_module.c.o
 
 .PHONY : src/http/modules/ngx_http_empty_gif_module.o
@@ -2903,6 +2930,33 @@ src/http/modules/ngx_http_try_files_module.s: src/http/modules/ngx_http_try_file
 src/http/modules/ngx_http_try_files_module.c.s:
 	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_try_files_module.c.s
 .PHONY : src/http/modules/ngx_http_try_files_module.c.s
+
+src/http/modules/ngx_http_upstream_bind_module.o: src/http/modules/ngx_http_upstream_bind_module.c.o
+
+.PHONY : src/http/modules/ngx_http_upstream_bind_module.o
+
+# target to build an object file
+src/http/modules/ngx_http_upstream_bind_module.c.o:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.o
+.PHONY : src/http/modules/ngx_http_upstream_bind_module.c.o
+
+src/http/modules/ngx_http_upstream_bind_module.i: src/http/modules/ngx_http_upstream_bind_module.c.i
+
+.PHONY : src/http/modules/ngx_http_upstream_bind_module.i
+
+# target to preprocess a source file
+src/http/modules/ngx_http_upstream_bind_module.c.i:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.i
+.PHONY : src/http/modules/ngx_http_upstream_bind_module.c.i
+
+src/http/modules/ngx_http_upstream_bind_module.s: src/http/modules/ngx_http_upstream_bind_module.c.s
+
+.PHONY : src/http/modules/ngx_http_upstream_bind_module.s
+
+# target to generate assembly for a file
+src/http/modules/ngx_http_upstream_bind_module.c.s:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.s
+.PHONY : src/http/modules/ngx_http_upstream_bind_module.c.s
 
 src/http/modules/ngx_http_upstream_hash_module.o: src/http/modules/ngx_http_upstream_hash_module.c.o
 
@@ -6516,6 +6570,9 @@ help:
 	@echo "... src/http/modules/ngx_http_degradation_module.o"
 	@echo "... src/http/modules/ngx_http_degradation_module.i"
 	@echo "... src/http/modules/ngx_http_degradation_module.s"
+	@echo "... src/http/modules/ngx_http_demo_module.o"
+	@echo "... src/http/modules/ngx_http_demo_module.i"
+	@echo "... src/http/modules/ngx_http_demo_module.s"
 	@echo "... src/http/modules/ngx_http_empty_gif_module.o"
 	@echo "... src/http/modules/ngx_http_empty_gif_module.i"
 	@echo "... src/http/modules/ngx_http_empty_gif_module.s"
@@ -6624,6 +6681,9 @@ help:
 	@echo "... src/http/modules/ngx_http_try_files_module.o"
 	@echo "... src/http/modules/ngx_http_try_files_module.i"
 	@echo "... src/http/modules/ngx_http_try_files_module.s"
+	@echo "... src/http/modules/ngx_http_upstream_bind_module.o"
+	@echo "... src/http/modules/ngx_http_upstream_bind_module.i"
+	@echo "... src/http/modules/ngx_http_upstream_bind_module.s"
 	@echo "... src/http/modules/ngx_http_upstream_hash_module.o"
 	@echo "... src/http/modules/ngx_http_upstream_hash_module.i"
 	@echo "... src/http/modules/ngx_http_upstream_hash_module.s"

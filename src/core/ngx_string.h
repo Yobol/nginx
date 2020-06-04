@@ -12,11 +12,14 @@
 #include <ngx_config.h>
 #include <ngx_core.h>
 
-
+// Nginx 使用 ngx_str_t 可以有效地降低内存使用量。
+// 例如，用户请求 “GET /testa=1 http/1.1\r\n” 存储到内存地址 0x1d0b0110 上，
+// 这时只需要把 r->method_name 设置为 {len=3,data=0x1d0b0110} 就可以表示方法名 “GET”，
+// 而不需要单独为 method_name 再分配内存冗余的存储字符串
 typedef struct {
-    size_t      len;
-    u_char     *data;
-} ngx_str_t;
+    size_t      len;   // 表示字符串的有效长度
+    u_char     *data;  // 指向字符串的起始地址
+} ngx_str_t;  // ngx_str_t 表示字符串
 
 
 typedef struct {
@@ -49,7 +52,7 @@ typedef struct {
 
 void ngx_strlow(u_char *dst, u_char *src, size_t n);
 
-
+// use case: ngx_strncmp(r->method_name.data, "PUT", r->method_name.len)
 #define ngx_strncmp(s1, s2, n)  strncmp((const char *) s1, (const char *) s2, n)
 
 

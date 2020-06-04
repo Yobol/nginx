@@ -1178,6 +1178,7 @@ fi
 #fi
 
 
+# 在 configure 命令生成的 ngx_modules.c 文件中加入需要的模块
 if test -n "$NGX_ADDONS"; then
 
     echo configuring additional modules
@@ -1196,6 +1197,7 @@ if test -n "$NGX_ADDONS"; then
         ngx_module_link=ADDON
 
         if test -f $ngx_addon_dir/config; then
+            # 执行 --add-module=PATH 对应路径下的 config 脚本编译模块
             . $ngx_addon_dir/config
 
             echo " + $ngx_addon_name was configured"
@@ -1266,7 +1268,7 @@ if [ $USE_PCRE = YES ]; then
     . auto/module
 fi
 
-
+# 生成 modules 变量，以包含所有需要的模块
 modules="$CORE_MODULES $EVENT_MODULES"
 
 
@@ -1364,6 +1366,18 @@ if [ $NGX_COMPAT = YES ]; then
 fi
 
 
+# 生成 ngx_modules.c 文件
+# HERE DOCUMENTS 用于处理多行文本
+#
+# cat << END
+# ...
+# END
+# ... 指代的内容会被当成 cat 的标准输入
+#
+# cat << END > $NGX_MODULES_C
+# ...
+# END
+# ... 指代的内容会被重定向到 $NGX_MODULES_C 对应的文件中
 cat << END                                    > $NGX_MODULES_C
 
 #include <ngx_config.h>

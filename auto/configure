@@ -7,9 +7,10 @@
 LC_ALL=C
 export LC_ALL
 
+# . 表示占位符，后跟一个文件路径，表示将文件中的内容替换到当前位置
+
 # 处理 configure 命令的参数，如参数是 --help 的话，会显示支持的所有参数格式
 # options 脚本会定义后续工作要使用的变量，并根据本次参数以及默认值设置这些变量
-# . 表示占位符，后跟一个文件路径，表示将文件中的内容替换到当前位置
 . auto/options
 # 初始化后续将产生的文件路径
 . auto/init
@@ -21,6 +22,7 @@ export LC_ALL
 # 注：test 用于检查某个条件是否成立， -d 如果文件存在且为目录则为真
 test -d $NGX_OBJS || mkdir -p $NGX_OBJS  # 判断 <nginx-source>/objs 目录是否存在，如果不存在则新建
 
+# TODO what do the following statements means?
 echo > $NGX_AUTO_HEADERS_H
 echo > $NGX_AUTOCONF_ERR
 
@@ -39,6 +41,7 @@ fi
 if test -z "$NGX_PLATFORM"; then  # 判断 $NGX_PLATFORM 是否被设置为具体的平台类型
     echo "checking for OS"
 
+    # TODO 2> means?
     NGX_SYSTEM=`uname -s 2>/dev/null`
     NGX_RELEASE=`uname -r 2>/dev/null`
     NGX_MACHINE=`uname -m 2>/dev/null`
@@ -123,7 +126,7 @@ have=NGX_HTTP_UWSGI_TEMP_PATH value="\"$NGX_HTTP_UWSGI_TEMP_PATH\""
 have=NGX_HTTP_SCGI_TEMP_PATH value="\"$NGX_HTTP_SCGI_TEMP_PATH\""
 . auto/define
 
-# 创建编译时使用的 objs/Makefile 文件
+# 创建编译时使用的 objs/Makefile 文件，将相关模块编译进 Nginx 中
 . auto/make
 # 为 objs/Makefile 文件加入需要链接的第三方静态库，动态库或目标文件
 . auto/lib/make

@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -3034,6 +3034,32 @@ CMakeFiles/nginx.dir/src/stream/ngx_stream_write_filter_module.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nginx.dir/src/stream/ngx_stream_write_filter_module.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yobol/workspace/opensource/nginx/src/stream/ngx_stream_write_filter_module.c -o CMakeFiles/nginx.dir/src/stream/ngx_stream_write_filter_module.c.s
 
+CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.o: CMakeFiles/nginx.dir/flags.make
+CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.o: ../src/http/modules/ngx_http_demo_module.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_230) "Building C object CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.o   -c /home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_demo_module.c
+
+CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_demo_module.c > CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.i
+
+CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_demo_module.c -o CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.s
+
+CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.o: CMakeFiles/nginx.dir/flags.make
+CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.o: ../src/http/modules/ngx_http_upstream_bind_module.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_231) "Building C object CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.o   -c /home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_bind_module.c
+
+CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_bind_module.c > CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.i
+
+CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_bind_module.c -o CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.s
+
 # Object files for target nginx
 nginx_OBJECTS = \
 "CMakeFiles/nginx.dir/src/core/nginx.c.o" \
@@ -3264,7 +3290,9 @@ nginx_OBJECTS = \
 "CMakeFiles/nginx.dir/src/stream/ngx_stream_upstream_round_robin.c.o" \
 "CMakeFiles/nginx.dir/src/stream/ngx_stream_upstream_zone_module.c.o" \
 "CMakeFiles/nginx.dir/src/stream/ngx_stream_variables.c.o" \
-"CMakeFiles/nginx.dir/src/stream/ngx_stream_write_filter_module.c.o"
+"CMakeFiles/nginx.dir/src/stream/ngx_stream_write_filter_module.c.o" \
+"CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.o" \
+"CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.o"
 
 # External object files for target nginx
 nginx_EXTERNAL_OBJECTS =
@@ -3498,9 +3526,11 @@ nginx: CMakeFiles/nginx.dir/src/stream/ngx_stream_upstream_round_robin.c.o
 nginx: CMakeFiles/nginx.dir/src/stream/ngx_stream_upstream_zone_module.c.o
 nginx: CMakeFiles/nginx.dir/src/stream/ngx_stream_variables.c.o
 nginx: CMakeFiles/nginx.dir/src/stream/ngx_stream_write_filter_module.c.o
+nginx: CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.o
+nginx: CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.o
 nginx: CMakeFiles/nginx.dir/build.make
 nginx: CMakeFiles/nginx.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_230) "Linking CXX executable nginx"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_232) "Linking CXX executable nginx"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nginx.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
