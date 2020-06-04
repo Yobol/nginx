@@ -72,6 +72,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_chunked_filter_module.c" "/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles/nginx.dir/src/http/modules/ngx_http_chunked_filter_module.c.o"
   "/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_dav_module.c" "/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles/nginx.dir/src/http/modules/ngx_http_dav_module.c.o"
   "/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_degradation_module.c" "/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles/nginx.dir/src/http/modules/ngx_http_degradation_module.c.o"
+  "/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_demo_module.c" "/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.o"
   "/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_empty_gif_module.c" "/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles/nginx.dir/src/http/modules/ngx_http_empty_gif_module.c.o"
   "/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_fastcgi_module.c" "/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles/nginx.dir/src/http/modules/ngx_http_fastcgi_module.c.o"
   "/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_flv_module.c" "/home/yobol/workspace/opensource/nginx/cmake-build-debug/CMakeFiles/nginx.dir/src/http/modules/ngx_http_flv_module.c.o"

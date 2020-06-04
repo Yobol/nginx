@@ -1932,6 +1932,33 @@ src/http/modules/ngx_http_degradation_module.c.s:
 	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_degradation_module.c.s
 .PHONY : src/http/modules/ngx_http_degradation_module.c.s
 
+src/http/modules/ngx_http_demo_module.o: src/http/modules/ngx_http_demo_module.c.o
+
+.PHONY : src/http/modules/ngx_http_demo_module.o
+
+# target to build an object file
+src/http/modules/ngx_http_demo_module.c.o:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.o
+.PHONY : src/http/modules/ngx_http_demo_module.c.o
+
+src/http/modules/ngx_http_demo_module.i: src/http/modules/ngx_http_demo_module.c.i
+
+.PHONY : src/http/modules/ngx_http_demo_module.i
+
+# target to preprocess a source file
+src/http/modules/ngx_http_demo_module.c.i:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.i
+.PHONY : src/http/modules/ngx_http_demo_module.c.i
+
+src/http/modules/ngx_http_demo_module.s: src/http/modules/ngx_http_demo_module.c.s
+
+.PHONY : src/http/modules/ngx_http_demo_module.s
+
+# target to generate assembly for a file
+src/http/modules/ngx_http_demo_module.c.s:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.s
+.PHONY : src/http/modules/ngx_http_demo_module.c.s
+
 src/http/modules/ngx_http_empty_gif_module.o: src/http/modules/ngx_http_empty_gif_module.c.o
 
 .PHONY : src/http/modules/ngx_http_empty_gif_module.o
@@ -6516,6 +6543,9 @@ help:
 	@echo "... src/http/modules/ngx_http_degradation_module.o"
 	@echo "... src/http/modules/ngx_http_degradation_module.i"
 	@echo "... src/http/modules/ngx_http_degradation_module.s"
+	@echo "... src/http/modules/ngx_http_demo_module.o"
+	@echo "... src/http/modules/ngx_http_demo_module.i"
+	@echo "... src/http/modules/ngx_http_demo_module.s"
 	@echo "... src/http/modules/ngx_http_empty_gif_module.o"
 	@echo "... src/http/modules/ngx_http_empty_gif_module.i"
 	@echo "... src/http/modules/ngx_http_empty_gif_module.s"

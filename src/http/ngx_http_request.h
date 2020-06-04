@@ -401,16 +401,18 @@ struct ngx_http_request_s {
     time_t                            start_sec;
     ngx_msec_t                        start_msec;
 
-    ngx_uint_t                        method;
+    ngx_uint_t                        method;  // 请求方法类型
     ngx_uint_t                        http_version;
 
     ngx_str_t                         request_line;
-    ngx_str_t                         uri;
+    ngx_str_t                         uri;  // 请求 URI
     ngx_str_t                         args;
-    ngx_str_t                         exten;
+    // 当用户请求为 GET /a.txt HTTP/1.1 时, exten 的值为 {len=3, data="txt"}
+    // 当用户请求为 GET /a HTTP/1.1 时, exten 的值为 {len=0, data=0x0}
+    ngx_str_t                         exten;  // 指向用户请求的文件拓展名
     ngx_str_t                         unparsed_uri;
 
-    ngx_str_t                         method_name;
+    ngx_str_t                         method_name;  // 请求方法名
     ngx_str_t                         http_protocol;
     ngx_str_t                         schema;
 
@@ -577,13 +579,14 @@ struct ngx_http_request_s {
      * via ngx_http_ephemeral_t
      */
 
-    u_char                           *uri_start;
-    u_char                           *uri_end;
-    u_char                           *uri_ext;
+    u_char                           *uri_start;  // 指向 HTTP 请求 URI 首字符的地址
+    u_char                           *uri_end;  // 指向 HTTP 请求 URI 最后一个字符的下一个字符的地址
+    u_char                           *uri_ext;  // 与 exten.data 指向的内容相同
     u_char                           *args_start;
-    u_char                           *request_start;
-    u_char                           *request_end;
-    u_char                           *method_end;
+    u_char                           *request_start;  // 指向 HTTP 请求内容的起始地址，即 HTTP 请求方法名的起始地址
+    u_char                           *request_end;  // 指向 HTTP 请求方法名的最后一个字符的地址
+    // TODO 既然使用指针可以用来表示请求中的指定部分，为什么还需要 method_name 等字段存储其具体内容呢？
+    u_char                           *method_end;  // 指向 HTTP 请求方法的终止地址， [request_start, method_end] 之间的内容为请求方法名
     u_char                           *schema_start;
     u_char                           *schema_end;
     u_char                           *host_start;

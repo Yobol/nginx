@@ -66,6 +66,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_chunked_filter_module.c.o"
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_dav_module.c.o"
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_degradation_module.c.o"
+  "CMakeFiles/nginx.dir/src/http/modules/ngx_http_demo_module.c.o"
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_empty_gif_module.c.o"
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_fastcgi_module.c.o"
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_flv_module.c.o"

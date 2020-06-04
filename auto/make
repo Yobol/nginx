@@ -406,10 +406,14 @@ fi
 
 # the addons sources
 
+# 生成编译第三方模块的源代码
 if test -n "$NGX_ADDON_SRCS"; then
 
     ngx_cc="\$(CC) $ngx_compile_opt \$(CFLAGS) $ngx_use_pch \$(ALL_INCS)"
 
+    # 将每个模块的目标文件设置到 ngx_obj 变量中，
+    # 生成 Makefile 里的链接代码
+    # 将所有的目标文件，库文件链接成二进制程序
     for ngx_src in $NGX_ADDON_SRCS
     do
         ngx_obj="addon/`basename \`dirname $ngx_src\``"

@@ -17,7 +17,7 @@ static ngx_int_t ngx_http_upstream_get_least_conn_peer(
 static char *ngx_http_upstream_least_conn(ngx_conf_t *cf, ngx_command_t *cmd,
     void *conf);
 
-
+// static 修饰全局变量时表示当前变量只对当前文件可见，其他文件不可访问
 static ngx_command_t  ngx_http_upstream_least_conn_commands[] = {
 
     { ngx_string("least_conn"),

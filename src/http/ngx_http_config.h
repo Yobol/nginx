@@ -21,18 +21,30 @@ typedef struct {
 } ngx_http_conf_ctx_t;
 
 
+/*
+ * ngx_http_module_t 中定义了 Nginx 在启动过程中对应的 8 个阶段（定义顺序和调用顺序是不同的）
+ * 调用顺序：
+ * 1. create_main_conf
+ * 2. create_srv_conf
+ * 3. create_loc_conf
+ * 4. preconfiguration
+ * 5. init_main_conf
+ * 6. merge_srv_conf
+ * 7. merge_loc_conf
+ * 8. postconfiguration
+ */
 typedef struct {
-    ngx_int_t   (*preconfiguration)(ngx_conf_t *cf);
-    ngx_int_t   (*postconfiguration)(ngx_conf_t *cf);
+    ngx_int_t   (*preconfiguration)(ngx_conf_t *cf);  // 解析配置文件前调用
+    ngx_int_t   (*postconfiguration)(ngx_conf_t *cf);  // 完成配置文集解析后调用
 
-    void       *(*create_main_conf)(ngx_conf_t *cf);
-    char       *(*init_main_conf)(ngx_conf_t *cf, void *conf);
+    void       *(*create_main_conf)(ngx_conf_t *cf);  // 当需要创建数据结构用于存储 main 级别（直属于 http 块的配置项）的全局配置项时调用
+    char       *(*init_main_conf)(ngx_conf_t *cf, void *conf); // 初始化 main 级别配置项
 
-    void       *(*create_srv_conf)(ngx_conf_t *cf);
-    char       *(*merge_srv_conf)(ngx_conf_t *cf, void *prev, void *conf);
+    void       *(*create_srv_conf)(ngx_conf_t *cf);  // 当需要创建数据结构用于存储 srv 级别（直属于 server 块的配置项）的配置项时调用
+    char       *(*merge_srv_conf)(ngx_conf_t *cf, void *prev, void *conf);  // 用于合并 main 级别和 srv级别下的同名配置项
 
-    void       *(*create_loc_conf)(ngx_conf_t *cf);
-    char       *(*merge_loc_conf)(ngx_conf_t *cf, void *prev, void *conf);
+    void       *(*create_loc_conf)(ngx_conf_t *cf); // 当需要创建数据结构用于存储 loc 级别（直属于 location 块的配置项）的配置项时调用
+    char       *(*merge_loc_conf)(ngx_conf_t *cf, void *prev, void *conf);  // 用于合并 srv 级别和 loc 级别下的同名配置项
 } ngx_http_module_t;
 
 

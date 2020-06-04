@@ -15,50 +15,60 @@
 
 typedef void *            ngx_buf_tag_t;
 
+// 缓冲区 ngx_buf_t 是 Nginx 处理大数据的关键数据结构，它既应用于内存数据也应用于磁盘数据
 typedef struct ngx_buf_s  ngx_buf_t;
 
 struct ngx_buf_s {
-    u_char          *pos;
-    u_char          *last;
-    off_t            file_pos;
-    off_t            file_last;
+    u_char          *pos;  // 本次处理的（内存）起始位置
+    u_char          *last;  // 本次处理的（内存）终止位置（TODO 是否包含 last）
+    off_t            file_pos;  // 本次处理的文件起始位置
+    off_t            file_last;  // 本次处理的文件终止位置（TODO 是否包含 file_last)
 
     u_char          *start;         /* start of buffer */
     u_char          *end;           /* end of buffer */
-    ngx_buf_tag_t    tag;
-    ngx_file_t      *file;
+    ngx_buf_tag_t    tag;  // 表示当前缓冲区的类型，由哪个模块使用就指向这个模块 ngx_module_t 变量的地址
+    ngx_file_t      *file; // 引用的文件
+    // 当前缓冲区的影子缓冲区，该字段很少使用到
     ngx_buf_t       *shadow;
 
 
     /* the buf's content could be changed */
-    unsigned         temporary:1;
+    unsigned         temporary:1;  // 临时内存标志位，为1时表示数据在内存中且这段内存可以被修改
 
     /*
      * the buf's content is in a memory cache or in a read only memory
      * and must not be changed
      */
-    unsigned         memory:1;
+    unsigned         memory:1;  // 标志位，为1时表示数据在内存中且这段内存不可以被修改
 
     /* the buf's content is mmap()ed and must not be changed */
-    unsigned         mmap:1;
+    unsigned         mmap:1;  // 标志位，为1时表示这段内存时用 mmap 系统调用映射过来的，这段内存不可以被修改
 
-    unsigned         recycled:1;
-    unsigned         in_file:1;
-    unsigned         flush:1;
-    unsigned         sync:1;
-    unsigned         last_buf:1;
-    unsigned         last_in_chain:1;
+    unsigned         recycled:1;  // 标志位，为1时表示这段内存可以被回收
+    unsigned         in_file:1;  // 标志位，为1时表示这段缓冲区处理的是文件而非内存
+    unsigned         flush:1;  // 标志位，为1时表示需要执行 flush 操作
+    unsigned         sync:1;  // 标志位，为1时表示操作该缓冲区时使用同步方式，该方式可能会阻塞 Nginx 进程
+    unsigned         last_buf:1;  // 标志位，为1时表示当前缓冲区是最后一块缓冲区（ngx_buf_t 可以由 ngx_chain_t 链表串联起来）
+    unsigned         last_in_chain:1;  // 标志位，为1时表示当前缓冲区是 ngx_chain_t 中的最后一块缓冲区
 
-    unsigned         last_shadow:1;
-    unsigned         temp_file:1;
+    unsigned         last_shadow:1;  // 标志位，为1时表示是最后一个影子缓冲区，与 shadow 字段配合使用
+    unsigned         temp_file:1;  // 标志位，为1时表示当前缓冲区属于临时文件
 
     /* STUB */ int   num;
 };
+// ngx_buf_t 是一种基本数据结构，本质上它提供的仅仅是一些指针成员和标志位。
+// 对于 HTTP 模块来说，需要注意 HTTP 框架、事件框架是如何设置和使用 pos、last 等指针以及如何处理这些标志位的。
+// 如果我们自定义一个 ngx_buf_t 结构体，不应当受限于上述用法，而应该根据业务需求自行定义。
+// 例如，当用一个 ngx_buf_t 缓冲区转发上下游 TCP 流时，
+// pos 会指向将要发送到下游的 TCP 流起始地址，而 last 会指向预备接收上游 TCP 流的缓冲区起始地址。
 
 
 struct ngx_chain_s {
-    ngx_buf_t    *buf;
-    ngx_chain_t  *next;
+    ngx_buf_t    *buf;  // ngx_buf_t 缓冲区
+    ngx_chain_t  *next;  // 指向下一个 ngx_chain_t 元素，如果当前 ngx_buf_t->last_in_chain 为1，则该字段应置为 NULL
+    // 在向用户发送 HTTP 包体时，就要传入 ngx_chain_t 链表对象。
+    // 注意，如果是最后一个 ngx_chain_t ，那么必须将 next 置为 NULL，
+    // 否则永远不会发送成功，而且这个请求将一直不会结束（Nginx 框架的要求）。
 };
 
 

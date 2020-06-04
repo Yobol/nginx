@@ -73,14 +73,16 @@
 
 #define NGX_MAX_CONF_ERRSTR  1024
 
-
+/*
+ * 每个 ngx_command_s 都对应了 nginx.conf 文件中的一个配置项
+ */
 struct ngx_command_s {
-    ngx_str_t             name;
-    ngx_uint_t            type;
-    char               *(*set)(ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
-    ngx_uint_t            conf;
-    ngx_uint_t            offset;
-    void                 *post;
+    ngx_str_t             name;  // 配置项名称
+    ngx_uint_t            type;  // 配置项类型，指定配置项可以出现的位置（如 http/server/location）和可以携带的参数个数
+    char               *(*set)(ngx_conf_t *cf, ngx_command_t *cmd, void *conf);  // 当配置文件中出现 name 指定的配置项后，将会调用 set 方法进行处理
+    ngx_uint_t            conf;  // 在配置文件中的偏移量
+    ngx_uint_t            offset;  // 通常用于使用预设的解析方法解析配置项，需要与 conf 配合使用
+    void                 *post;  // 配置项读取后的处理方法，必须是 ngx_conf_post_t 结构的指针
 };
 
 #define ngx_null_command  { ngx_null_string, 0, NULL, 0, 0, NULL }
