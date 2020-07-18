@@ -556,9 +556,6 @@
 		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_try_files_module.c">
 			<Option target="nginx"/>
 		</Unit>
-		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_bind_module.c">
-			<Option target="nginx"/>
-		</Unit>
 		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_hash_module.c">
 			<Option target="nginx"/>
 		</Unit>
@@ -572,6 +569,9 @@
 			<Option target="nginx"/>
 		</Unit>
 		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_random_module.c">
+			<Option target="nginx"/>
+		</Unit>
+		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_tw_bind_module.c">
 			<Option target="nginx"/>
 		</Unit>
 		<Unit filename="/home/yobol/workspace/opensource/nginx/src/http/modules/ngx_http_upstream_zone_module.c">

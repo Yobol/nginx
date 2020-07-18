@@ -2931,33 +2931,6 @@ src/http/modules/ngx_http_try_files_module.c.s:
 	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_try_files_module.c.s
 .PHONY : src/http/modules/ngx_http_try_files_module.c.s
 
-src/http/modules/ngx_http_upstream_bind_module.o: src/http/modules/ngx_http_upstream_bind_module.c.o
-
-.PHONY : src/http/modules/ngx_http_upstream_bind_module.o
-
-# target to build an object file
-src/http/modules/ngx_http_upstream_bind_module.c.o:
-	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.o
-.PHONY : src/http/modules/ngx_http_upstream_bind_module.c.o
-
-src/http/modules/ngx_http_upstream_bind_module.i: src/http/modules/ngx_http_upstream_bind_module.c.i
-
-.PHONY : src/http/modules/ngx_http_upstream_bind_module.i
-
-# target to preprocess a source file
-src/http/modules/ngx_http_upstream_bind_module.c.i:
-	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.i
-.PHONY : src/http/modules/ngx_http_upstream_bind_module.c.i
-
-src/http/modules/ngx_http_upstream_bind_module.s: src/http/modules/ngx_http_upstream_bind_module.c.s
-
-.PHONY : src/http/modules/ngx_http_upstream_bind_module.s
-
-# target to generate assembly for a file
-src/http/modules/ngx_http_upstream_bind_module.c.s:
-	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_bind_module.c.s
-.PHONY : src/http/modules/ngx_http_upstream_bind_module.c.s
-
 src/http/modules/ngx_http_upstream_hash_module.o: src/http/modules/ngx_http_upstream_hash_module.c.o
 
 .PHONY : src/http/modules/ngx_http_upstream_hash_module.o
@@ -3092,6 +3065,33 @@ src/http/modules/ngx_http_upstream_random_module.s: src/http/modules/ngx_http_up
 src/http/modules/ngx_http_upstream_random_module.c.s:
 	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_random_module.c.s
 .PHONY : src/http/modules/ngx_http_upstream_random_module.c.s
+
+src/http/modules/ngx_http_upstream_tw_bind_module.o: src/http/modules/ngx_http_upstream_tw_bind_module.c.o
+
+.PHONY : src/http/modules/ngx_http_upstream_tw_bind_module.o
+
+# target to build an object file
+src/http/modules/ngx_http_upstream_tw_bind_module.c.o:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_tw_bind_module.c.o
+.PHONY : src/http/modules/ngx_http_upstream_tw_bind_module.c.o
+
+src/http/modules/ngx_http_upstream_tw_bind_module.i: src/http/modules/ngx_http_upstream_tw_bind_module.c.i
+
+.PHONY : src/http/modules/ngx_http_upstream_tw_bind_module.i
+
+# target to preprocess a source file
+src/http/modules/ngx_http_upstream_tw_bind_module.c.i:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_tw_bind_module.c.i
+.PHONY : src/http/modules/ngx_http_upstream_tw_bind_module.c.i
+
+src/http/modules/ngx_http_upstream_tw_bind_module.s: src/http/modules/ngx_http_upstream_tw_bind_module.c.s
+
+.PHONY : src/http/modules/ngx_http_upstream_tw_bind_module.s
+
+# target to generate assembly for a file
+src/http/modules/ngx_http_upstream_tw_bind_module.c.s:
+	$(MAKE) -f CMakeFiles/nginx.dir/build.make CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_tw_bind_module.c.s
+.PHONY : src/http/modules/ngx_http_upstream_tw_bind_module.c.s
 
 src/http/modules/ngx_http_upstream_zone_module.o: src/http/modules/ngx_http_upstream_zone_module.c.o
 
@@ -6681,9 +6681,6 @@ help:
 	@echo "... src/http/modules/ngx_http_try_files_module.o"
 	@echo "... src/http/modules/ngx_http_try_files_module.i"
 	@echo "... src/http/modules/ngx_http_try_files_module.s"
-	@echo "... src/http/modules/ngx_http_upstream_bind_module.o"
-	@echo "... src/http/modules/ngx_http_upstream_bind_module.i"
-	@echo "... src/http/modules/ngx_http_upstream_bind_module.s"
 	@echo "... src/http/modules/ngx_http_upstream_hash_module.o"
 	@echo "... src/http/modules/ngx_http_upstream_hash_module.i"
 	@echo "... src/http/modules/ngx_http_upstream_hash_module.s"
@@ -6699,6 +6696,9 @@ help:
 	@echo "... src/http/modules/ngx_http_upstream_random_module.o"
 	@echo "... src/http/modules/ngx_http_upstream_random_module.i"
 	@echo "... src/http/modules/ngx_http_upstream_random_module.s"
+	@echo "... src/http/modules/ngx_http_upstream_tw_bind_module.o"
+	@echo "... src/http/modules/ngx_http_upstream_tw_bind_module.i"
+	@echo "... src/http/modules/ngx_http_upstream_tw_bind_module.s"
 	@echo "... src/http/modules/ngx_http_upstream_zone_module.o"
 	@echo "... src/http/modules/ngx_http_upstream_zone_module.i"
 	@echo "... src/http/modules/ngx_http_upstream_zone_module.s"
