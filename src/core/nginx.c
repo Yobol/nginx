@@ -182,7 +182,7 @@ ngx_module_t  ngx_core_module = {
 static ngx_uint_t   ngx_show_help;
 static ngx_uint_t   ngx_show_version;
 static ngx_uint_t   ngx_show_configure;
-static u_char      *ngx_prefix;
+static u_char      *ngx_prefix;  // nginx 的安装路径，默认为 /usr/local/nginx，可由 -p 参数指定
 static u_char      *ngx_conf_file;
 static u_char      *ngx_conf_params;
 static char        *ngx_signal;
@@ -190,7 +190,23 @@ static char        *ngx_signal;
 
 static char **ngx_os_environ;
 
-
+/*
+ *  为什么这里有个 ngx_cdecl？ https://blog.csdn.net/wuchunlai_2012/article/details/50686295?utm_source=blogxgwz7
+ *
+ *  跨平台支持，方便调整函数调用方式
+ *
+ *  函数调用规则：
+ *
+ *   调用方法         参数传递顺序         谁负责清理参数占用的堆栈
+ *  __pascal       从左到右依次入栈             调用者
+ *  __cdel         从右到左依次入栈             调用者
+ *  __stdcall      从右到左依次入栈            被调函数
+ *
+ *  __cdel ==> 被调用函数不会要求调用者传递多少参数，调用者传递过多或者过少的参数，甚至完全不同的参数都不会产生编译阶段的错误。
+ *  调用函数的代码和被调函数必须采用相同的函数的调用约定，程序才能正常运行。
+ *
+ *  #define ngx_cdecl stdcall
+ */
 int ngx_cdecl
 main(int argc, char *const *argv)
 {
@@ -207,6 +223,7 @@ main(int argc, char *const *argv)
         return 1;
     }
 
+    // 解析 Nginx 命令中的参数，初始化全局变量
     if (ngx_get_options(argc, argv) != NGX_OK) {
         return 1;
     }
@@ -221,20 +238,29 @@ main(int argc, char *const *argv)
 
     /* TODO */ ngx_max_sockets = -1;
 
+    // 初始化并更新全局时间
     ngx_time_init();
 
+// 是否有模块使用正则表达式
 #if (NGX_PCRE)
     ngx_regex_init();
 #endif
 
+    /*
+     * 获取当前进程的进程ID
+     *
+     * 一般 pid 会放在 nginx.pid 文件中，用于发送重启、关闭等信号命令 => nginx -s stop
+     */
     ngx_pid = ngx_getpid();
-    ngx_parent = ngx_getppid();
+    ngx_parent = ngx_getppid();  // 获取当前进程的父进程ID
 
+    // 初始化日志，并得到日志的文件句柄
     log = ngx_log_init(ngx_prefix);
     if (log == NULL) {
         return 1;
     }
 
+// 是否有模块使用 OPENSSL
     /* STUB */
 #if (NGX_OPENSSL)
     ngx_ssl_init(log);
@@ -245,15 +271,19 @@ main(int argc, char *const *argv)
      * ngx_process_options()
      */
 
+    /*
+     * 初始化 init_cycle 的全局变量，并为其分配一个 1KB 的内存池
+     */
     ngx_memzero(&init_cycle, sizeof(ngx_cycle_t));
     init_cycle.log = log;
     ngx_cycle = &init_cycle;
 
     init_cycle.pool = ngx_create_pool(1024, log);
-    if (init_cycle.pool == NULL) {
+    if (init_cycle.pool == NULL) { // 是否初始化失败
         return 1;
     }
 
+    // 保存 nginx 命令行中的参数和变量
     if (ngx_save_argv(&init_cycle, argc, argv) != NGX_OK) {
         return 1;
     }
@@ -737,7 +767,9 @@ ngx_exec_new_binary(ngx_cycle_t *cycle, char *const *argv)
     return pid;
 }
 
-
+/*
+ * 解析命令行中的参数
+ */
 static ngx_int_t
 ngx_get_options(int argc, char *const *argv)
 {
