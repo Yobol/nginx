@@ -108,7 +108,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_keepalive_module.c.o"
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_least_conn_module.c.o"
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_random_module.c.o"
-  "CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_tw_bind_module.c.o"
+  "CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_tw_edge_cv_binder_module.c.o"
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_upstream_zone_module.c.o"
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_userid_filter_module.c.o"
   "CMakeFiles/nginx.dir/src/http/modules/ngx_http_uwsgi_module.c.o"

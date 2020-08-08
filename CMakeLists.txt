@@ -357,4 +357,4 @@ add_executable(nginx
         src/stream/ngx_stream_upstream_zone_module.c
         src/stream/ngx_stream_variables.c
         src/stream/ngx_stream_variables.h
-        src/stream/ngx_stream_write_filter_module.c src/http/modules/ngx_http_demo_module.c src/http/modules/ngx_http_upstream_tw_edge_bind_module.c)
+        src/stream/ngx_stream_write_filter_module.c src/http/modules/ngx_http_demo_module.c src/http/modules/ngx_http_upstream_tw_edge_cv_binder_module.c)
