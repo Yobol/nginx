@@ -179,13 +179,13 @@ ngx_module_t  ngx_core_module = {
 };
 
 
-static ngx_uint_t   ngx_show_help;
-static ngx_uint_t   ngx_show_version;
-static ngx_uint_t   ngx_show_configure;
-static u_char      *ngx_prefix;  // nginx 的安装路径，默认为 /usr/local/nginx，可由 -p 参数指定
-static u_char      *ngx_conf_file;
-static u_char      *ngx_conf_params;
-static char        *ngx_signal;
+static ngx_uint_t   ngx_show_help;  // 是否显示帮助信息
+static ngx_uint_t   ngx_show_version;  // 是否显示 nginx 版本
+static ngx_uint_t   ngx_show_configure;  // 是否显示配置信息
+static u_char      *ngx_prefix;  // nginx 的工作目录，默认为 /usr/local/nginx，可由 -p 参数指定
+static u_char      *ngx_conf_file;  // 全局配置文件地址
+static u_char      *ngx_conf_params;  // 配置参数
+static char        *ngx_signal;  // 信号
 
 
 static char **ngx_os_environ;
@@ -223,7 +223,7 @@ main(int argc, char *const *argv)
         return 1;
     }
 
-    // 解析 Nginx 命令中的参数，初始化全局变量
+    // 解析 nginx 命令行中的参数
     if (ngx_get_options(argc, argv) != NGX_OK) {
         return 1;
     }
@@ -283,21 +283,33 @@ main(int argc, char *const *argv)
         return 1;
     }
 
-    // 保存 nginx 命令行中的参数和变量
+    // 将从 nginx 命令行中读取到的参数及数量保存到全局变量 ngx_argv 和 ngx_argc 中
     if (ngx_save_argv(&init_cycle, argc, argv) != NGX_OK) {
         return 1;
     }
 
+    // 将从 ngx_get_options 中获得的参数（已经保存到全局变量 ngx_argv 中）保存到 init_cycle 中
+    // 如 prefix, conf_prefix（和 prefix 保持一致），conf_file 和 conf_param 等字段
     if (ngx_process_options(&init_cycle) != NGX_OK) {
         return 1;
     }
 
+    /*
+     * 初始化与操作系统有关的变量，如：
+     * - 内存页大小 ngx_pagesize
+     * - 内存缓存行大小，ngx_cacheline_size
+     * - 最大连接数，ngx_max_sockets
+     * 具体实现详见 src/os 包
+     */
     if (ngx_os_init(log) != NGX_OK) {
         return 1;
     }
 
     /*
      * ngx_crc32_table_init() requires ngx_cacheline_size set in ngx_os_init()
+     *
+     * 初始化一致性 hash 表，主要作用是加快查询
+     * TODO crc32 是什么？
      */
 
     if (ngx_crc32_table_init() != NGX_OK) {
@@ -306,18 +318,31 @@ main(int argc, char *const *argv)
 
     /*
      * ngx_slab_sizes_init() requires ngx_pagesize set in ngx_os_init()
+     *
+     * TODO slab 是什么？
      */
 
     ngx_slab_sizes_init();
 
+    /*
+     * TODO 继承了 socket 的套接字，热启动的时候需要平滑过渡？
+     */
     if (ngx_add_inherited_sockets(&init_cycle) != NGX_OK) {
         return 1;
     }
 
+    /*
+     * 初始化模块，主要是对模块进行编号处理
+     */
     if (ngx_preinit_modules() != NGX_OK) {
         return 1;
     }
 
+    /*
+     * 完成全局变量 cycle 的初始化
+     *
+     * TODO cycle 是贯穿 nginx 运行周期的全局变量吗？
+     */
     cycle = ngx_init_cycle(&init_cycle);
     if (cycle == NULL) {
         if (ngx_test_config) {
@@ -354,6 +379,7 @@ main(int argc, char *const *argv)
         return 0;
     }
 
+    // 如果有信号（nginx -s stop/quit/reload/reopen），则进入 ngx_signal_process 方法
     if (ngx_signal) {
         return ngx_signal_process(cycle, ngx_signal);
     }
@@ -362,6 +388,9 @@ main(int argc, char *const *argv)
 
     ngx_cycle = cycle;
 
+    /*
+     * 得到核心模块 ngx_core_module 的配置文件指针
+     */
     ccf = (ngx_core_conf_t *) ngx_get_conf(cycle->conf_ctx, ngx_core_module);
 
     if (ccf->master && ngx_process == NGX_PROCESS_SINGLE) {
@@ -388,6 +417,7 @@ main(int argc, char *const *argv)
 
 #endif
 
+    // 创建 pid 文件/c
     if (ngx_create_pidfile(&ccf->pid, cycle->log) != NGX_OK) {
         return 1;
     }
@@ -409,6 +439,9 @@ main(int argc, char *const *argv)
         ngx_single_process_cycle(cycle);
 
     } else {
+        /*
+         * 启动多进程模式，包括创建子进程、事件监听并运行各个模块
+         */
         ngx_master_process_cycle(cycle);
     }
 
@@ -780,50 +813,59 @@ ngx_get_options(int argc, char *const *argv)
 
         p = (u_char *) argv[i];
 
+        // 每个命令必须以 - 字符开头
         if (*p++ != '-') {
             ngx_log_stderr(0, "invalid option: \"%s\"", argv[i]);
             return NGX_ERROR;
         }
 
+        // 确定紧跟在 - 字符后面的具体是什么命令的缩写
         while (*p) {
 
             switch (*p++) {
 
+            // ? 和 h 字符表示 help，都会显示 nginx 版本和 help 信息
             case '?':
             case 'h':
                 ngx_show_version = 1;
                 ngx_show_help = 1;
                 break;
 
+            // v 表示 version，只会显示 nginx 版本
             case 'v':
                 ngx_show_version = 1;
                 break;
 
+            // TODO ngx_show_configure 有什么含义?
             case 'V':
                 ngx_show_version = 1;
                 ngx_show_configure = 1;
                 break;
 
+            // TODO ngx_test_config 有什么含义？
             case 't':
                 ngx_test_config = 1;
                 break;
 
+            // TODO ngx_dump_config 有什么含义？
             case 'T':
                 ngx_test_config = 1;
                 ngx_dump_config = 1;
                 break;
 
+            // TODO ngx_quiet_mode 有什么含义？
             case 'q':
                 ngx_quiet_mode = 1;
                 break;
 
+            // -p 命令选项需要指定 nginx 安装路径
             case 'p':
-                if (*p) {
+                if (*p) {  // 当 -p 紧跟 prefix 路径时，直接读取
                     ngx_prefix = p;
                     goto next;
                 }
 
-                if (argv[++i]) {
+                if (argv[++i]) {  // 否则 -p 与 prefix 路径相隔若干空格，则读取下一个 argv
                     ngx_prefix = (u_char *) argv[i];
                     goto next;
                 }
@@ -832,12 +874,12 @@ ngx_get_options(int argc, char *const *argv)
                 return NGX_ERROR;
 
             case 'c':
-                if (*p) {
+                if (*p) {  // 当 -c 紧跟 nginx.conf 路径时，直接读取
                     ngx_conf_file = p;
                     goto next;
                 }
 
-                if (argv[++i]) {
+                if (argv[++i]) {  // 否则 -c 与 nginx_conf 路径相隔若干空格，则读取下一个 argv
                     ngx_conf_file = (u_char *) argv[i];
                     goto next;
                 }
@@ -871,6 +913,7 @@ ngx_get_options(int argc, char *const *argv)
                     return NGX_ERROR;
                 }
 
+                // 判断信号类型是否符合要求
                 if (ngx_strcmp(ngx_signal, "stop") == 0
                     || ngx_strcmp(ngx_signal, "quit") == 0
                     || ngx_strcmp(ngx_signal, "reopen") == 0
@@ -897,7 +940,13 @@ ngx_get_options(int argc, char *const *argv)
     return NGX_OK;
 }
 
-
+/*
+ * 将从命令行中读取的参数拷贝到全局变量 ngx_argv 中
+ *
+ * ngx_argc、ngx_argv 和 ngx_os_argv 都在 src/os 目录中定义
+ *
+ * 需要 ngx_cycle_t 是因为需要从 cycle->pool 上申请内存空间
+ */
 static ngx_int_t
 ngx_save_argv(ngx_cycle_t *cycle, int argc, char *const *argv)
 {
@@ -914,6 +963,7 @@ ngx_save_argv(ngx_cycle_t *cycle, int argc, char *const *argv)
     ngx_os_argv = (char **) argv;
     ngx_argc = argc;
 
+    // 为 ngx_argv 申请 argc + 1 个 char * 的空间
     ngx_argv = ngx_alloc((argc + 1) * sizeof(char *), cycle->log);
     if (ngx_argv == NULL) {
         return NGX_ERROR;
@@ -922,6 +972,7 @@ ngx_save_argv(ngx_cycle_t *cycle, int argc, char *const *argv)
     for (i = 0; i < argc; i++) {
         len = ngx_strlen(argv[i]) + 1;
 
+        // 分配空间保存 argv[i] 中的内容
         ngx_argv[i] = ngx_alloc(len, cycle->log);
         if (ngx_argv[i] == NULL) {
             return NGX_ERROR;
@@ -934,6 +985,8 @@ ngx_save_argv(ngx_cycle_t *cycle, int argc, char *const *argv)
 
 #endif
 
+    // TODO 为什么在这里为 ngx_os_environ 赋值
+    // environ 变量在 src/os/unix 目录中定义
     ngx_os_environ = environ;
 
     return NGX_OK;
@@ -946,11 +999,11 @@ ngx_process_options(ngx_cycle_t *cycle)
     u_char  *p;
     size_t   len;
 
-    if (ngx_prefix) {
+    if (ngx_prefix) {  // 是否通过命令指定了 ngx_prefix
         len = ngx_strlen(ngx_prefix);
         p = ngx_prefix;
 
-        if (len && !ngx_path_separator(p[len - 1])) {
+        if (len && !ngx_path_separator(p[len - 1])) { // 判断 ngx_prefix 是否以 / 结尾，如果不是则加上一个 /
             p = ngx_pnalloc(cycle->pool, len + 1);
             if (p == NULL) {
                 return NGX_ERROR;
@@ -967,7 +1020,7 @@ ngx_process_options(ngx_cycle_t *cycle)
 
     } else {
 
-#ifndef NGX_PREFIX
+#ifndef NGX_PREFIX  // 如果没有定义 NGX_PREFIX， 则获取当前文件夹作为 nginx 的安装路径
 
         p = ngx_pnalloc(cycle->pool, NGX_MAX_PATH);
         if (p == NULL) {

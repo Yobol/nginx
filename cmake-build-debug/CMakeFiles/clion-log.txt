@@ -1,4 +1,1 @@
-/home/yobol/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7846.88/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/yobol/workspace/opensource/nginx
--- Configuring done
--- Generating done
--- Build files have been written to: /home/yobol/workspace/opensource/nginx/cmake-build-debug
+MinGW not found at:  Configure
