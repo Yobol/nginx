@@ -1093,6 +1093,7 @@ ngx_signal_process(ngx_cycle_t *cycle, char *sig)
         return 1;
     }
 
+    // TODO 为什么是 NGX_INT64_LEN + 2？
     n = ngx_read_file(&file, buf, NGX_INT64_LEN + 2, 0);
 
     if (ngx_close_file(file.fd) == NGX_FILE_ERROR) {
@@ -1106,7 +1107,7 @@ ngx_signal_process(ngx_cycle_t *cycle, char *sig)
 
     while (n-- && (buf[n] == CR || buf[n] == LF)) { /* void */ }
 
-    pid = ngx_atoi(buf, ++n);
+    pid = ngx_atoi(buf, ++n);  // 得到 PID
 
     if (pid == (ngx_pid_t) NGX_ERROR) {
         ngx_log_error(NGX_LOG_ERR, cycle->log, 0,
@@ -1115,7 +1116,7 @@ ngx_signal_process(ngx_cycle_t *cycle, char *sig)
         return 1;
     }
 
-    return ngx_os_signal_process(cycle, sig, pid);
+    return ngx_os_signal_process(cycle, sig, pid);  // 向 PID 对应的进程发送信号
 
 }
 

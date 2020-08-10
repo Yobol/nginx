@@ -510,7 +510,12 @@ ngx_show_version_info(void)
     }
 }
 
-
+/*
+ * Nginx 支持热切换，为了保证切换之后的套接字不丢失，每次启动时需要从全局变量 NGINX 中读取套接字句柄存放到 cycle.listening 中
+ *
+ * 在 NGINX 环境变量中，每个 socket 句柄中间使用冒号或分号隔开， 如 export NGINX="9875:9876:9877:9878;"
+ * 完成继承时设置全局变量 ngx_inherited 为 1
+ */
 static ngx_int_t
 ngx_add_inherited_sockets(ngx_cycle_t *cycle)
 {
@@ -518,6 +523,7 @@ ngx_add_inherited_sockets(ngx_cycle_t *cycle)
     ngx_int_t         s;
     ngx_listening_t  *ls;
 
+    // 读取宏环境变量 NGINX
     inherited = (u_char *) getenv(NGINX_VAR);
 
     if (inherited == NULL) {
@@ -527,6 +533,9 @@ ngx_add_inherited_sockets(ngx_cycle_t *cycle)
     ngx_log_error(NGX_LOG_NOTICE, cycle->log, 0,
                   "using inherited sockets from \"%s\"", inherited);
 
+    /*
+     * 初始化 cycle.listening 数组，长度为 10
+     */
     if (ngx_array_init(&cycle->listening, cycle->pool, 10,
                        sizeof(ngx_listening_t))
         != NGX_OK)
@@ -536,7 +545,7 @@ ngx_add_inherited_sockets(ngx_cycle_t *cycle)
 
     for (p = inherited, v = p; *p; p++) {
         if (*p == ':' || *p == ';') {
-            s = ngx_atoi(v, p - v);
+            s = ngx_atoi(v, p - v);  // 字符串转整数
             if (s == NGX_ERROR) {
                 ngx_log_error(NGX_LOG_EMERG, cycle->log, 0,
                               "invalid socket number \"%s\" in " NGINX_VAR
@@ -554,6 +563,7 @@ ngx_add_inherited_sockets(ngx_cycle_t *cycle)
 
             ngx_memzero(ls, sizeof(ngx_listening_t));
 
+            // 将 socket 文件句柄保存到 ngx_listening_t 结构数组上
             ls->fd = (ngx_socket_t) s;
         }
     }
@@ -564,6 +574,7 @@ ngx_add_inherited_sockets(ngx_cycle_t *cycle)
                       " environment variable, ignoring", v);
     }
 
+    // 完成初始化操作
     ngx_inherited = 1;
 
     return ngx_set_inherited_sockets(cycle);
