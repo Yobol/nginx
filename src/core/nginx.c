@@ -340,8 +340,6 @@ main(int argc, char *const *argv)
 
     /*
      * 完成全局变量 cycle 的初始化
-     *
-     * TODO cycle 是贯穿 nginx 运行周期的全局变量吗？
      */
     cycle = ngx_init_cycle(&init_cycle);
     if (cycle == NULL) {
